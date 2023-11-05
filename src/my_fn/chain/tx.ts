@@ -19,6 +19,9 @@ export const sign_and_send = async (chain_instance: ChainInstance, tx: any, if_t
 
         let tx_success = undefined
         const tx_hash = await tx.signAndSend(chain_instance.signer,
+            {
+                tip:0
+            },
             ({ events = [], status, txHash }: CallbackParamType) => {
                 // console.log(`Current status is ${status.type}`);
 
@@ -94,7 +97,9 @@ export const batch_all = async (chain_instance: ChainInstance, txs: any, if_tip:
 
         let tx_success = undefined
         const tx_hash = await api.tx.utility.batchAll(txs).signAndSend(chain_instance.signer,
-
+            {
+                tip:0
+            },
             ({ events = [], status, txHash }: CallbackParamType) => {
                 // console.log(`Current status is ${status.type}`);
 

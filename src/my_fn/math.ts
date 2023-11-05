@@ -9,6 +9,15 @@ export const get_bn_from_chain_data = (chain_data: string): BN => {
     if (chain_data.startsWith('0x')) {
         return new BN(chain_data.substring(2), 16); // Use base 16 for hexadecimal
     }
+   
     return new BN(chain_data.replace(/[^0-9]/g, ''))
+
+}
+
+
+export const get_bn_from_point_number = (point_number: number,decimal:BN): BN => {
+   
+    return new BN(point_number * 1e6).mul(decimal).div(new BN(1e6))
+    // return new BN(chain_data.replace(/[^0-9]/g, ''))
 
 }

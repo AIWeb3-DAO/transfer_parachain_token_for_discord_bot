@@ -27,9 +27,20 @@ export const user_input: UserInput = {
             gas_token:'ZTG'
         },
         'centrifuge':{
-            rpc:'rpc-centrifuge.luckyfriday.io',
+            rpc:'wss://rpc-centrifuge.luckyfriday.io',
             gas_token:'CFG'
+        },
+
+
+        'kusama': {
+            rpc:'wss://kusama.api.onfinality.io',
+            gas_token:'KSM'
+        },
+        'bifrost_ksm':{
+            rpc:'wss://bifrost-rpc.liebi.com/ws',
+            gas_token:'BNC_ksm'
         }
+
     },
 
 
@@ -40,6 +51,9 @@ export const user_input: UserInput = {
         'BNC_dot': bn_from_decimal(12), // this is BNC of bifrost_dot
 
         'ZTG':bn_from_decimal(10),
-        'CFG':bn_from_decimal(18)
+        'CFG':bn_from_decimal(18),
+
+        'KSM':bn_from_decimal(12),
+        'BNC_ksm': bn_from_decimal(12), // this is BNC of bifrost_dot
     }
 }

@@ -1,3 +1,3 @@
-chain_name,token, amount,target_address
-astar,ASTR,1,5xxxxx
-astar,ASTR,1.7,5xxxx
+chain_name,token,amount,receiver_address
+acala,ACA,0.2,234KdsyQwtXkZth2pCeSzW3Dochyn8Jv6xkfNLBxyxt7TrZf
+acala,ACA,0.2,25EdYwrddQSwyo1hPKL3zFmevKfKp5n8yH5VhfbeEt6iTGsf

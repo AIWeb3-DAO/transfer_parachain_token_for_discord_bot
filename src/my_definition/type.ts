@@ -2,7 +2,7 @@ import BN from "bn.js"
 
 
 
-export type MultiChainName = 'acala' | 'polkadot' | 'bifrost_dot' | 'astar' | 'zeitgeist' | 'centrifuge'
+export type MultiChainName = 'acala' | 'polkadot' | 'bifrost_dot' | 'astar' | 'zeitgeist' | 'centrifuge' | 'kusama' | 'bifrost_ksm'
 
 export type UserInput = {
     chain:{[chain_name in MultiChainName]: {

@@ -5,7 +5,7 @@ async function main(){
     
     const chain_instance = await chain_instance_init()
     const task_data_list = await task_init()
-
+    
     await simple_transfer(chain_instance,task_data_list)
 
     console.log('process end in 5s')

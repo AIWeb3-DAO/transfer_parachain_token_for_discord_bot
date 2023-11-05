@@ -6,7 +6,8 @@ import { Observable } from "rxjs";
 import { ChainInstance } from "../my_definition/class";
 import { program } from "commander";
 import * as fn_parachain from "../my_fn/chain/parachain";
-import { get_bn_from_chain_data } from "./math";
+import { get_bn_from_chain_data, get_bn_from_point_number } from "./math";
+import BN from "bn.js";
 
 program
     .option('--chain <string>', 'chain_name')
@@ -50,15 +51,18 @@ export const task_init = async () => {
         header: true
     });
     const task_data: TaskData[] = []
+    
+    // console.log('task_data', results.data)
     results.data.forEach((row: any) => {
         task_data.push(
             {
                 chain_name: row.chain_name,
                 token: row.token,
-                amount: get_bn_from_chain_data(row.amount).mul(user_input.decimal[row.token]),
+                amount: get_bn_from_point_number(Number(row.amount),user_input.decimal[row.token])   ,// get_bn_from_chain_data can not handle the point number   get_bn_from_chain_data(row.amount.toString()).mul(user_input.decimal[row.token]),
                 receiver_address: row.receiver_address
             }
         )
     })
     return task_data
 }
+// new BN(Number(row.amount) * user_input.decimal[row.token].toNumber())

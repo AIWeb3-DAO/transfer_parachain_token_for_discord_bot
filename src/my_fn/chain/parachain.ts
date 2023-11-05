@@ -19,7 +19,7 @@ export const currence_transfer = async (chain_instance:ChainInstance,token:strin
 }
 
 
-export const balance_monitor = async (chain_instance:ChainInstance,token:string, amount:BN, receiver_list:string[])=>{
+export const balance_monitor = async (chain_instance:ChainInstance,token:string,receiver_list:string[])=>{
     const gas_token = chain_instance.user_input.chain[chain_instance.chain_name].gas_token
     if ( token != gas_token) {
        
