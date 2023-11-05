@@ -15,3 +15,4 @@ export const decimal:type_decimal  = {
     'zeitgeist': 1e10,
     'centrifuge': 1e18 
 }
+
