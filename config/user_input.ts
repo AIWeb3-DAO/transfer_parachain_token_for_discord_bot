@@ -22,7 +22,14 @@ export const user_input: UserInput = {
             rpc: 'wss://rpc.astar.network',
             gas_token: 'ASTR',
         },
-
+        'zeitgeist':{
+            rpc:'wss://zeitgeist-rpc.dwellir.com',
+            gas_token:'ZTG'
+        },
+        'centrifuge':{
+            rpc:'rpc-centrifuge.luckyfriday.io',
+            gas_token:'CFG'
+        }
     },
 
 

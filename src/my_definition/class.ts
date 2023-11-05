@@ -22,10 +22,11 @@ export class ChainInstance {
     balance_real_time:Record<
         string, Record<string,BN>
     >={}  // should be like 5xxxxx: { ACA: 100, ASTR: 100 }
-    constructor(chain_name: MultiChainName,api:ApiPromise,api_rx:ApiRx) {
+    constructor(chain_name: MultiChainName,api:ApiPromise,api_rx:ApiRx,signer:any) {
         this.chain_name = chain_name
         this.api = api
         this.api_rx = api_rx
         this.user_input =  user_input
+        this.signer = signer
     }
 }

@@ -1,8 +1,8 @@
 import BN from "bn.js"
-import { decimal } from "../../config"
 
 
-export type MultiChainName = 'acala' | 'polkadot' | 'bifrost_dot' | 'astar'
+
+export type MultiChainName = 'acala' | 'polkadot' | 'bifrost_dot' | 'astar' | 'zeitgeist' | 'centrifuge'
 
 export type UserInput = {
     chain:{[chain_name in MultiChainName]: {
@@ -13,8 +13,13 @@ export type UserInput = {
     decimal:{
         [token:string]:BN
     }
-    
-}
 
+}
+export type TaskData = {
+    chain_name: MultiChainName,
+    token: string,
+    amount: BN,
+    receiver_address:string
+}
 
 

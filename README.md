@@ -6,8 +6,15 @@
 
 2. 用户所有数据只用在config.ts 中填写，并 tsc 编译脚本
 
-3. node dist/src/index.js  运行脚本
+3. node dist/src/index.js --chain polkadot --seed_phase "a b c d ..." --task_path src/xxx/xxx.csv  
 
+
+🤔 测试： csv file should be like this:
+chain_name,token, amount,target_address
+astar,ASTR,1,5xxxxx
+astar,ASTR,1.7,5xxxx
+
+For now, only support gas token and only for single chain transfer.
 
 tip：
 大部分波卡生态的地址使用 5xxxx的即可。 如果调用xcm跨链相关的api的时候，一定谨慎填写地址，5xxxx不一定适用（xcm通常使用的publicKey作为接收地址）。
