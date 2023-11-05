@@ -1,5 +1,5 @@
 # transfer_token_multi_parrachains
-简单的脚本，一键发送平行链代币到多个地址
+在 https://github.com/NeoSmithX/transfer_token_multi_parrachains 的基础上，增加更多平行链的支持，并通过discord/telegram bot 触发
 
 
 1. yarn install
