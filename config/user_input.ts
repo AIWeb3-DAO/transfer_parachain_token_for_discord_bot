@@ -38,5 +38,8 @@ export const user_input: UserInput = {
         'ASTR': bn_from_decimal(18),
         'ACA': bn_from_decimal(12),
         'BNC_dot': bn_from_decimal(12), // this is BNC of bifrost_dot
+
+        'ZTG':bn_from_decimal(10),
+        'CFG':bn_from_decimal(18)
     }
 }

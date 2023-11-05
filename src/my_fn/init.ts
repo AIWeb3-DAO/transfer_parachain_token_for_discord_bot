@@ -41,8 +41,8 @@ export const chain_instance_init = async (): Promise<ChainInstance> => {
 }
 
 export const task_init = async () => {
-    // const task_path = command_input.task_path as string
-    const task_path = 'src/public_data/transfer_data.csv'
+    const task_path = command_input.task_path as string
+    // const task_path = 'src/public_data/transfer_data.csv'
     const fs = require('fs')
     const Papa = require('papaparse')
     let csvData = fs.readFileSync(task_path, 'utf8');
