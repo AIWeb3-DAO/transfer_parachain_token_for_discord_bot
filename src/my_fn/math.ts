@@ -15,9 +15,9 @@ export const get_bn_from_chain_data = (chain_data: string): BN => {
 }
 
 
-export const get_bn_from_point_number = (point_number: number,decimal:BN): BN => {
+export const get_bn_from_point_number = (point_number: number,decimal:BN, fix_point:number = 6): BN => {
    
-    return new BN(point_number * 1e6).mul(decimal).div(new BN(1e6))
+    return new BN( Math.floor(point_number * 10 ** fix_point)).mul(decimal).div(new BN( Math.floor(10 ** fix_point)))
     // return new BN(chain_data.replace(/[^0-9]/g, ''))
 
 }
