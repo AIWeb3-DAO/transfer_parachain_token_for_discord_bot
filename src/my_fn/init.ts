@@ -54,6 +54,9 @@ export const task_init = async () => {
     
     // console.log('task_data', results.data)
     results.data.forEach((row: any) => {
+        if (!row.chain_name) {
+            return
+        }
         task_data.push(
             {
                 chain_name: row.chain_name,
