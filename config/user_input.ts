@@ -33,11 +33,11 @@ export const user_input: UserInput = {
 
 
         'kusama': {
-            rpc:'wss://kusama.api.onfinality.io',
+            rpc:'wss://kusama-rpc.polkadot.io',
             gas_token:'KSM'
         },
         'bifrost_ksm':{
-            rpc:'wss://bifrost-rpc.liebi.com/ws',
+            rpc:'wss://bifrost-rpc.dwellir.com',
             gas_token:'BNC_ksm'
         }
 
