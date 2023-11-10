@@ -37,7 +37,7 @@ export const user_input: UserInput = {
             gas_token:'KSM'
         },
         'bifrost_ksm':{
-            rpc:'wss://bifrost-rpc.dwellir.com',
+            rpc: 'wss://bifrost-rpc.liebi.com/ws',// 'wss://bifrost-rpc.dwellir.com', 
             gas_token:'BNC_ksm'
         }
 

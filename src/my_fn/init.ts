@@ -10,15 +10,18 @@ import { get_bn_from_chain_data, get_bn_from_point_number } from "./math";
 import BN from "bn.js";
 
 program
-    .option('--chain <string>', 'chain_name')
+    // .option('--chain <string>', 'chain_name')
     .option('--seed_phase <string>', 'seed_phase')
 .option('--task_path <string>', 'task_path')
 program.parse(process.argv)
 
 const command_input = program.opts()
 
-export const chain_instance_init = async (): Promise<ChainInstance> => {
-    const chain_name = command_input.chain as MultiChainName
+export const chain_instance_init = async (chain_name:MultiChainName): Promise<ChainInstance> => {
+
+
+
+    // const chain_name = command_input.chain as MultiChainName
     const rpc_url = user_input.chain[chain_name].rpc
     const wsProvider = new WsProvider(rpc_url)
     const api = await ApiPromise.create({ provider: wsProvider })

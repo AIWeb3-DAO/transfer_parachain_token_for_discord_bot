@@ -1,3 +1,4 @@
+import BN from "bn.js";
 import { ChainInstance } from "../my_definition/class"
 import { TaskData } from "../my_definition/type"
 import { batch_all, sign_and_send } from "../my_fn/chain/tx";
@@ -9,7 +10,17 @@ export const simple_transfer = async (chain_instance: ChainInstance, task_list: 
     console.log('start monitor the balance of receiver, and wait 10s')
     await new Promise(f => setTimeout(f, 10 * 1000));
     // transfer token
-    const tx_list: any = [], amount_before_tx_list = JSON.parse(JSON.stringify(chain_instance.balance_real_time))
+    const tx_list: any = []//, amount_before_tx_list = JSON.parse(JSON.stringify(chain_instance.balance_real_time)) // BN can not use JSON.parse(JSON.stringify())
+    let amount_list_before_tx : Record<string,Record<string,BN>> = {}
+    for (let addr of Object.keys(chain_instance.balance_real_time) ){
+        let amount_with_token:Record<string,BN> = {}
+        for (let token of Object.keys(chain_instance.balance_real_time[addr])){
+            amount_with_token[token] = chain_instance.balance_real_time[addr][token]
+        }
+        amount_list_before_tx[addr] = amount_with_token
+    }
+    
+    
     for (let task of task_list) {
         const tx_transfer = await chain_instance.method?.currence_transfer(chain_instance, task.token, task.amount, task.receiver_address)
         tx_list.push(tx_transfer)
@@ -25,8 +36,8 @@ export const simple_transfer = async (chain_instance: ChainInstance, task_list: 
 
             let index = imcomplete_task_list_copy[i]
             let token = task_list[index].token, receiver_address = task_list[index].receiver_address
-            if (chain_instance.balance_real_time[receiver_address][token].gt(amount_before_tx_list[receiver_address][token])) {
-                console.log('tx success: '+ receiver_address + ' ' + token + ' ' + amount_before_tx_list[receiver_address][token].toString()+ '->'+chain_instance.balance_real_time[receiver_address][token].toString())
+            if (chain_instance.balance_real_time[receiver_address][token].gt(amount_list_before_tx[receiver_address][token] )) {
+                console.log('tx success: '+ receiver_address + ' ' + token + ' ' + amount_list_before_tx[receiver_address][token].toString()+ '->'+chain_instance.balance_real_time[receiver_address][token].toString())
                 imcomplete_task_list.splice(i, 1)
                 // break
             }
