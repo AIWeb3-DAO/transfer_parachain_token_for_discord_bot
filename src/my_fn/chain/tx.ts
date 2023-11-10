@@ -42,7 +42,7 @@ export const sign_and_send = async (chain_instance: ChainInstance, tx: any, if_t
         )
         console.timeEnd('fn_sign_and_send')
         console.log('tx submitted')
-        // return true
+        return true  // the tx monitor is not correct
         var tx_wait_count = 0
         while (true) {
             if (tx_success == true) {
@@ -121,7 +121,7 @@ export const batch_all = async (chain_instance: ChainInstance, txs: any, if_tip:
 
         console.timeEnd('fn_batch_all')
         console.log('tx submitted')
-        // return true
+        return true //the tx monitor is not correct
         var tx_wait_count = 0
         while (true) {
             if (tx_success == true) {
