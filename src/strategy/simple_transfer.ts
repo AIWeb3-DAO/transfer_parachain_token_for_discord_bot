@@ -30,6 +30,7 @@ export const simple_transfer = async (chain_instance: ChainInstance, task_list: 
     //generate array including 0 1 2 3 ... task_list.length
     let imcomplete_task_list = Array.from({ length: task_list.length }, (_, i) => i)
     // monitor the balance change
+    let time_count = 0, time_max = 120
     while (true) {
         const imcomplete_task_list_copy = JSON.parse(JSON.stringify(imcomplete_task_list))
         for (let i = 0; i < imcomplete_task_list_copy.length; i++) {
@@ -50,7 +51,12 @@ export const simple_transfer = async (chain_instance: ChainInstance, task_list: 
             console.log('task completed')
             return
         }
-        await new Promise(f => setTimeout(f, 1 * 1000));
+        await new Promise(f => setTimeout(f, 1 * 1000))
+        time_count++
+        if (time_count > time_max){
+            console.log('task failed, plz check it on subscan!!')
+            return
+        }
     }
     // return tx_list
 }
